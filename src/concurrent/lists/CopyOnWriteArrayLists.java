@@ -1,5 +1,6 @@
 package concurrent.lists;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -18,7 +19,8 @@ public class CopyOnWriteArrayLists {
 		}
 		
 		Iterator itr = list.iterator();
-		
+		//addition of 5 will not be reflected in the iterator since it is a snapshot style iterator
+		list.add(5);
 		while(itr.hasNext()) {
 			System.out.println(itr.next());
 			//Here remove method throws java.lang.UnsupportedOperationException we cannot use it.
